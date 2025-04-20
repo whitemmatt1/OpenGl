@@ -2,8 +2,8 @@
 #include <GLFW/glfw3.h>
 
 #include <iostream>
-#include <C:/dev/code/OpenGl/OpenGl/shader.h>
-#include <C:/dev/code/OpenGl/OpenGl/stb_image.h>
+#include <C:/dev/code/OpenGl/OpenGl/shaders/shader.h>
+#include <C:/dev/code/OpenGl/OpenGl/external/stb_image.h>
 
 #include <glm/glm.hpp>
 #include <glm/gtc/matrix_transform.hpp>
@@ -51,7 +51,7 @@ int main()
 	}
 
 	// build and compiles shader program
-	Shader ourShader("3.3.shader.vs", "3.3.shader.fs");
+	Shader ourShader("shaders/3.3.shader.vs", "shaders/3.3.shader.fs");
 
 	// vertex input
 	// store only unique vertices and use indices to specify the triangles
@@ -112,7 +112,7 @@ int main()
 
 	int width, height, nrChannels;
 	stbi_set_flip_vertically_on_load(true);
-	unsigned char* data = stbi_load("container.jpg", &width, &height, &nrChannels, 0);
+	unsigned char* data = stbi_load("images/container.jpg", &width, &height, &nrChannels, 0);
 	// error checker
 	if (data)
 	{
@@ -137,7 +137,7 @@ int main()
 	// flip texture right side up before loading
 	stbi_set_flip_vertically_on_load(true);
 
-	data = stbi_load("awesomeface.png", &width, &height, &nrChannels, 0);
+	data = stbi_load("images/awesomeface.png", &width, &height, &nrChannels, 0);
 	if (data)
 	{
 		glTexImage2D(GL_TEXTURE_2D, 0, GL_RGB, width, height, 0, GL_RGBA, GL_UNSIGNED_BYTE, data);
